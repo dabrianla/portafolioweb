@@ -20,7 +20,7 @@ body {
 
 .profile-header {
     display:flex;
-    align-items:center;
+    align-items:flex-start;
     justify-content:space-between;
     margin-bottom:40px;
 }
@@ -32,18 +32,53 @@ body {
 }
 
 .button {
-    background:var(--primary);
-    color:#111;
-    padding:10px 20px;
-    border:3px solid var(--primary);
-    border-radius:4px;
-    text-decoration:none;
-    font-weight:bold;
+    margin-top: 15px;
+    padding: 10px 22px;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.button:hover {
+    background: var(--primary);
+    color: black;
+    box-shadow: 0 0 20px var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Brillo deslizante */
+.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.button:hover::before {
+    left: 100%;
 }
 
 .profile-info {
     flex:1;
     margin-left:30px;
+    
 }
 
 .experience-box {
@@ -60,6 +95,14 @@ body {
     justify-content:center;
     margin:10px auto;
     font-size:24px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 40px;
 }
 
 .career-box a {
@@ -170,3 +213,209 @@ body {
 .lapis {background:#00587a;}
 .gold {background:#d4af37;}
 .silver {background:#8e9eab;}
+
+
+/* contacto overlay */
+
+.contact-btn {
+    margin-top: 15px;
+    padding: 10px 22px;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Glow base */
+.contact-btn:hover {
+    background: var(--primary);
+    color: black;
+    box-shadow: 0 0 20px var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Efecto de brillo deslizante */
+.contact-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.contact-btn:hover::before {
+    left: 100%;
+}
+
+.contact-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s ease;
+    z-index: 9999;
+}
+
+.contact-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.contact-panel {
+    display: flex;
+    gap: 40px;
+    transform: translateY(50px);
+    transition: 0.4s ease;
+}
+
+.contact-overlay.active .contact-panel {
+    transform: translateY(0);
+}
+
+.contact-card {
+    width: 200px;
+    height: 220px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    border: 2px solid var(--primary);
+    transition: 0.3s ease;
+}
+
+.contact-card img {
+    width: 70px;
+    margin-bottom: 15px;
+}
+
+.contact-card:hover {
+    transform: rotateY(10deg) scale(1.05);
+    box-shadow: 0 0 25px var(--primary);
+}
+
+.gmail:hover {
+    box-shadow: 0 0 25px #ff4d4d;
+}
+
+.whatsapp:hover {
+    box-shadow: 0 0 25px #25D366;
+}
+
+/* proyecto */
+
+/* ============================= */
+/* EXPERIENCE ULTRA PRO */
+/* ============================= */
+
+.experience-section {
+    position: relative;
+}
+
+.exp-title {
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    color: var(--primary);
+}
+
+/* Contenedor */
+.timeline {
+    position: relative;
+    padding-left: 60px;
+}
+
+/* Línea base */
+.timeline-line {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+}
+
+/* Línea activa que crece */
+.timeline-line::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: var(--line-height, 0);
+    background: var(--primary);
+    box-shadow: 0 0 20px var(--primary);
+    transition: height 0.2s ease-out;
+}
+
+/* Item */
+.timeline-item {
+    position: relative;
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.6s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Punto */
+.timeline-marker {
+    position: absolute;
+    left: -44px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #111;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+/* Año */
+.timeline-year {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-light);
+}
+
+/* Card */
+.timeline-content {
+    background: rgba(255,255,255,0.04);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(212,175,55,0.2);
+    transition: 0.3s ease;
+}
+
+.timeline-item.active .timeline-content {
+    box-shadow: 0 0 30px rgba(212,175,55,0.6);
+}
+
+.right-column {
+    position: sticky;
+    top: 40px;
+    align-self: start;
+}

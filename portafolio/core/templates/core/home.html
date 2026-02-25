@@ -20,8 +20,12 @@
         </div>
 
         <div class="profile-info">
-            <h1>Jugo Zuko</h1>
-            <p>Dabrian · Quilpué, Valparaíso, Chile</p>
+            <h1>Dabrian Nicolas Labraña Moreno</h1>
+            <p>Quilpué, Valparaíso, Chile</p>
+            <p>26 Años</p>
+            <button class="contact-btn" onclick="openContact()">
+    <span>Contacto</span>
+</button>
         </div>
 
         <div class="experience-box">
@@ -72,7 +76,50 @@
                 </div>
             </div>
 
+            <div class="card experience-section">
+
+    <h2 class="exp-title">EXPERIENCIA LABORAL</h2>
+
+    <div class="timeline">
+
+        <div class="timeline-line"></div>
+
+        <!-- ITEM -->
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">2025</span>
+                <h3>Diseñador y programador web - Líder de proyecto</h3>
+                <p>Ofertas Imperdibles SPA</p>
+                <ul>
+                    <li>Desarrollo páginas web con WordPress y Elementor.</li>
+                    <li>Coordinación de equipos.</li>
+                    <li>Implementación con Python y Django.</li>
+                </ul>
+            </div>
         </div>
+
+        <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">2024</span>
+                <h3>Desarrollador móvil</h3>
+                <p>Proyecto concurso municipal</p>
+                <ul>
+                    <li>App móvil para emprendedores.</li>
+                    <li>Uso de Ionic, HTML, CSS y JS.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+        </div>
+
+    </div>
+
+    
 
         <!-- DERECHA -->
         <div class="right-column">
@@ -130,7 +177,25 @@
             <div class="color silver" data-color="silver"></div>
         </div>
 
-        <button onclick="closeModal()">Cerrar</button>
+        <button onclick="closeModal()" class="button">Cerrar</button>
+    </div>
+</div>
+
+<div class="contact-overlay" id="contactOverlay">
+    <div class="contact-panel">
+        <div class="contact-card gmail"
+             onclick="window.location.href='mailto:tucorreo@gmail.com'">
+            <img src="{% static 'img/gmail.png' %}">
+            <h3>Gmail</h3>
+            <p>Enviar correo</p>
+        </div>
+
+        <div class="contact-card whatsapp"
+             onclick="window.open('https://wa.me/569XXXXXXXX','_blank')">
+            <img src="{% static 'img/whatsapp.png' %}">
+            <h3>WhatsApp</h3>
+            <p>Escribirme ahora</p>
+        </div>
     </div>
 </div>
 
