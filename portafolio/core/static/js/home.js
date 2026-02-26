@@ -48,28 +48,6 @@ document.querySelectorAll(".color").forEach(c => {
 });
 
 // =======================================
-// LOAD SAVED PREFERENCES
-// =======================================
-
-window.addEventListener("load", () => {
-
-    const savedBg = localStorage.getItem("selectedBg");
-    if (savedBg) {
-        document.body.style.background =
-            `url('/static/img/${savedBg}') center/cover fixed`;
-    }
-
-    const savedColor = localStorage.getItem("selectedColor");
-    if (savedColor && colors[savedColor]) {
-        document.documentElement.style
-            .setProperty("--primary", colors[savedColor]);
-    }
-
-    // Iniciar animación terminal
-    initTerminal();
-});
-
-// =======================================
 // CONTACT OVERLAY
 // =======================================
 
@@ -89,7 +67,30 @@ if (contactOverlay) {
 }
 
 // =======================================
-// TERMINAL TYPEWRITER (EXPERIENCIA)
+// ON LOAD
+// =======================================
+
+window.addEventListener("load", () => {
+
+    // Restaurar fondo
+    const savedBg = localStorage.getItem("selectedBg");
+    if (savedBg) {
+        document.body.style.background =
+            `url('/static/img/${savedBg}') center/cover fixed`;
+    }
+
+    // Restaurar color
+    const savedColor = localStorage.getItem("selectedColor");
+    if (savedColor && colors[savedColor]) {
+        document.documentElement.style
+            .setProperty("--primary", colors[savedColor]);
+    }
+
+    initTerminal();
+});
+
+// =======================================
+// TERMINAL TYPEWRITER
 // =======================================
 
 function initTerminal() {
@@ -97,7 +98,7 @@ function initTerminal() {
     const title = document.getElementById("experience-title");
     if (!title) return;
 
-    const text = "EXPERIENCIA";
+    const text = "EXPERIENCIA LABORAL";
     let i = 0;
     title.innerHTML = "";
 
@@ -105,7 +106,7 @@ function initTerminal() {
         if (i < text.length) {
             title.innerHTML += text.charAt(i);
             i++;
-            setTimeout(type, 70);
+            setTimeout(type, 60);
         }
     }
 
@@ -122,12 +123,12 @@ const timelineItems = document.querySelectorAll(".timeline-item");
 
 if (timeline && timelineLine) {
 
-    // Línea crece al hacer scroll
     window.addEventListener("scroll", () => {
 
         const rect = timeline.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
+        // Línea crece
         if (rect.top < windowHeight) {
 
             let height = windowHeight - rect.top;
@@ -136,38 +137,30 @@ if (timeline && timelineLine) {
             timelineLine.style.setProperty("--line-height", height + "px");
         }
 
+        // Activar items
+        timelineItems.forEach(item => {
+
+            const itemRect = item.getBoundingClientRect();
+            const dot = item.querySelector(".timeline-dot");
+            const content = item.querySelector(".timeline-content");
+
+            if (itemRect.top < windowHeight * 0.8) {
+                item.classList.add("visible");
+                if (dot) dot.classList.add("active");
+            }
+
+        });
+
     });
 
-    // Fade + aparición progresiva
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-        });
-    }, { threshold: 0.25 });
-
-    timelineItems.forEach(item => observer.observe(item));
 }
 
 // =======================================
-// TOGGLE EXPERIENCIA + GLOW
+// TOGGLE CONTENT
 // =======================================
 
-document.querySelectorAll(".timeline-date").forEach(date => {
-    date.addEventListener("click", () => {
-
-        const content = date.nextElementSibling;
-        if (!content) return;
-
+document.querySelectorAll(".timeline-content").forEach(content => {
+    content.addEventListener("click", () => {
         content.classList.toggle("active");
-
-        // Glow effect
-        if (content.classList.contains("active")) {
-            content.style.boxShadow = "0 0 25px var(--primary)";
-        } else {
-            content.style.boxShadow = "none";
-        }
-
     });
 });

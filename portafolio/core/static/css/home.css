@@ -152,24 +152,50 @@ body {
     margin:5px;
 }
 
+/* ============================= */
+/* CARRUSEL INFINITO PRO */
+/* ============================= */
+
+.right-column {
+    min-width: 0;
+}
+
 .carousel {
-    overflow:hidden;
-    width:100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
 .carousel-track {
-    display:flex;
-    gap:20px;
-    animation: scroll 10s linear infinite;
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: infiniteScroll 25s linear infinite;
 }
 
 .carousel img {
-    width:50px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    flex: 0 0 auto;
 }
 
-@keyframes scroll {
-    from {transform: translateX(0);}
-    to {transform: translateX(-50%);}
+/* Animación infinita real */
+@keyframes infiniteScroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.carousel:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+.skills {
+    overflow: hidden;
 }
 
 /* MODAL */
@@ -381,18 +407,6 @@ body {
     transform: translateY(0);
 }
 
-/* Punto */
-.timeline-marker {
-    position: absolute;
-    left: -44px;
-    top: 5px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #111;
-    border: 3px solid var(--primary);
-    box-shadow: 0 0 15px var(--primary);
-}
 
 /* Año */
 .timeline-year {

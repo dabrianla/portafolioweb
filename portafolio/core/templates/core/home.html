@@ -78,7 +78,7 @@
 
             <div class="card experience-section">
 
-    <h2 class="exp-title">EXPERIENCIA LABORAL</h2>
+    <h2 class="exp-title" id="experience-title"></h2>
 
     <div class="timeline">
 
@@ -86,28 +86,37 @@
 
         <!-- ITEM -->
         <div class="timeline-item">
-            <div class="timeline-marker"></div>
+            <div class="timeline-dot"></div>
             <div class="timeline-content">
-                <span class="timeline-year">2025</span>
+                <span class="timeline-year">Mayo 2025 - Julio 2025</span>
                 <h3>Diseñador y programador web - Líder de proyecto</h3>
                 <p>Ofertas Imperdibles SPA</p>
                 <ul>
                     <li>Desarrollo páginas web con WordPress y Elementor.</li>
-                    <li>Coordinación de equipos.</li>
+                    <li>Coordinación y liderazgo de equipos de practicantes en informatica. distribuyendo tareas para optimizar tiempso y eficiencia.</li>
                     <li>Implementación con Python y Django.</li>
+                    <li>Documentación de procesos de los diferentes proyectos simultaneos y elaboracion de reportes semanales.</li>
+                    <li>Participacion en reuniones de lideres, proponiendo mejoras y soluciones a problemas emergentes.</li>
                 </ul>
             </div>
         </div>
 
         <div class="timeline-item">
-            <div class="timeline-marker"></div>
+            <div class="timeline-dot"></div>
             <div class="timeline-content">
-                <span class="timeline-year">2024</span>
-                <h3>Desarrollador móvil</h3>
-                <p>Proyecto concurso municipal</p>
+                <span class="timeline-year">octubre 2023 - enero 2025</span>
+                <h3>Operador Multifuncional</h3>
+                <p>Cencosud SA</p>
                 <ul>
-                    <li>App móvil para emprendedores.</li>
-                    <li>Uso de Ionic, HTML, CSS y JS.</li>
+                    <li>atencion al publico</li>
+                    <li>Reposicion de productos carniceria</li>
+                    <li>mantenimiento de orden y limpieza del sector</li>
+                </ul>
+                <p>Comentario personal</p>
+                <ul>
+                    <li>Durante mi tiempo en Cencosud SA, mejore mis habilidades en atención al cliente, logística de productos y mantenimiento de espacios comerciales. 
+                    Esta experiencia me permitió desarrollar una sólida capacidad de trabajo en equipo y responsabilidad ante las tareas asignadas.
+                Me permitio trabajar mucho tiempo en ambientes de trabajo dinámicos y con alta demanda de atención al cliente.</li>
                 </ul>
             </div>
         </div>
@@ -115,7 +124,7 @@
     </div>
 </div>
 
-        </div>
+        
 
     </div>
 
@@ -141,11 +150,18 @@
                 <h2>Habilidades</h2>
                 <div class="carousel">
                     <div class="carousel-track">
+                        <img src="{% static 'img/python.png' %}">
+                        <img src="{% static 'img/wordpress.png' %}">
                         <img src="{% static 'img/html.png' %}">
-                        <img src="{% static 'img/css.png' %}">
-                        <img src="{% static 'img/js.png' %}">
-                        <img src="{% static 'img/django.png' %}">
-                        <img src="{% static 'img/php.png' %}">
+                        <img src="{% static 'img/django.webp' %}">
+                        <img src="{% static 'img/elementor.webp' %}">
+
+                        <!-- DUPLICADAS -->
+                        <img src="{% static 'img/python.png' %}">
+                        <img src="{% static 'img/wordpress.png' %}">
+                        <img src="{% static 'img/html.png' %}">
+                        <img src="{% static 'img/django.webp' %}">
+                        <img src="{% static 'img/elementor.webp' %}">
                     </div>
                 </div>
             </div>
@@ -185,16 +201,18 @@
     <div class="contact-panel">
         <div class="contact-card gmail"
              onclick="window.location.href='mailto:tucorreo@gmail.com'">
-            <img src="{% static 'img/gmail.png' %}">
+            <img src="{% static 'img/gmail.webp' %}">
             <h3>Gmail</h3>
-            <p>Enviar correo</p>
+            <p>dabrianla@gmail.com</p>
+            <p>haz click para enviarme un correo</p>
         </div>
 
         <div class="contact-card whatsapp"
-             onclick="window.open('https://wa.me/569XXXXXXXX','_blank')">
-            <img src="{% static 'img/whatsapp.png' %}">
+             onclick="window.open('https://wa.me/+56988087970','_blank')">
+            <img src="{% static 'img/what.png' %}">
             <h3>WhatsApp</h3>
-            <p>Escribirme ahora</p>
+            <p>+56988087970</p>
+            <p>haz click para escribirme por whatsapp</p>
         </div>
     </div>
 </div>
